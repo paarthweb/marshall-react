@@ -15,7 +15,7 @@ const ThankYou = () => {
     </div>
     <Link to='/home'>
     <div className='keep-shopping'>
-    <Button>
+    <Button variant='light'>
       Keep Shopping
     </Button>
     </div>

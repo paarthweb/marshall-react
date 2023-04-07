@@ -44,7 +44,7 @@
   width: 50%;
   margin-left: 22em;
   padding: 10px;
-  margin-top: 10em;
+  margin-top: 3em;
   align-content: center;
   font-weight: 500;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -65,7 +65,7 @@
   margin-left: 45em;
 }
 .thank-you{
-  background-color:#c2cad2;
+  background-image: url(bg.jpg);
   height: 40em;
   
 }
