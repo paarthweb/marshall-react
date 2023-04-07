@@ -1,53 +1,65 @@
 import React from 'react'
-import { Badge, Container,Dropdown,Nav,Navbar} from "react-bootstrap"
+import { Badge, Button, Container, Dropdown, Nav, Navbar } from "react-bootstrap"
 import DropdownMenu from 'react-bootstrap/esm/DropdownMenu'
 import DropdownToggle from 'react-bootstrap/esm/DropdownToggle'
-import {FaShoppingCart} from 'react-icons/fa'
+import { FaShoppingCart } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { CartState } from '../context/Context'
-
+import pic from './images.png'
+import './style.css'
 
 const Header = () => {
-
-  const{state:{cart},
-} = CartState();
+  
+  const { state: { cart },
+  } = CartState();
   return (
-    <Navbar bg='dark' variant="dark" style={{ height: 80 }}>
-     <Container>
-      
+    <Navbar bg='dark' variant="dark" style={{ height: 80 }} sticky='top'>
+      <Container>
 
-        <Navbar.Brand>
-     
-            <Link to="/">
-                MarshallShop
-            </Link>
+
+        <Navbar.Brand className='brand' variant='success'>
+        <Link to="/home"> <img src={pic} alt='avatar' className='image'></img>
+          
+            MarshallShop
+          </Link>
         </Navbar.Brand>
-
+        <Link to='/cart'>
         <Nav>
-            <Dropdown alignRight>
-              <DropdownToggle variant='success'>
-                <FaShoppingCart color="white" fontSize="25px" /> 
-                
-                <Badge>{cart.length}</Badge>
-                </DropdownToggle> 
+         <div className='cart-icon'>
+          <Dropdown alignRight>
+            <DropdownToggle>
+              <FaShoppingCart color="white" fontSize="25px" />
+
+              <Badge>{cart.length}</Badge>
+            </DropdownToggle>
 
 
-            <DropdownMenu style={{ minWidth:370 }}>
-              
-              
+            <DropdownMenu style={{ minWidth: 370 }}>
             
-                 <span style={{padding:10}}>Cart is Empty!!</span>
-              
+            
 
-               
+            
+
+
+              <span style={{ padding: 10 }}></span>
+            
+
+
             </DropdownMenu>
-            </Dropdown>
+          </Dropdown>
+          </div>
         </Nav>
-     </Container>
-        
-        </Navbar>
-    
-    
+        </Link>
+        <Link to='/'>
+        <Button variant='success'>
+          Logout
+        </Button>
+        </Link>
+      </Container>
+
+    </Navbar>
+
+
   )
 }
 
