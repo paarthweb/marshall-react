@@ -4,6 +4,7 @@ import SingleProduct from './SingleProduct';
 import Filters from "./Filters";
 import './style.css'
 import Header from './Header';
+import img from './bg-image.jpg'
 
 
 
@@ -19,6 +20,7 @@ const Home = () => {
     <div>
   <Header></Header>
     <div className='home'>
+   
       
 
       <Filters />
@@ -26,8 +28,8 @@ const Home = () => {
         return <SingleProduct prod={prod} key={prod.id}></SingleProduct>
 
       })}
-
       </div>
+     
     </div>
     </div>
   )
