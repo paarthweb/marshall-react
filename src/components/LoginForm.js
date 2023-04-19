@@ -3,8 +3,13 @@ import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import HeaderWithoutCartIcon from "./HeaderWithoutCartIcon";
 import "./LoginForm.css";
+import * as axios from 'axios';
+import { BASE_URL } from '../contants'
 
 function LoginForm() {
+
+
+
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -41,12 +46,16 @@ function LoginForm() {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
-        setIsSubmitted(true);
+        //setIsSubmitted(true);
       }
     } else {
       // Username not found
       setErrorMessages({ name: "uname", message: errors.uname });
     }
+
+    axios.default.post(`${BASE_URL}/login`, { username: "uname", password: "pass"}).then((value) => {
+        console.log(value);
+    });
   };
 
   // Generate JSX code for error message
@@ -73,7 +82,7 @@ function LoginForm() {
           {renderErrorMessage("pass")}
         </div>
         <div className="button-container">
-        <Link to='/home'><input type="submit" /></Link>
+        <input type="submit" />
         </div>
       </form>
     </div>
