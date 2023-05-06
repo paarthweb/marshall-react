@@ -1,105 +1,108 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
-import HeaderWithoutCartIcon from "./HeaderWithoutCartIcon";
-import "./LoginForm.css";
-import * as axios from 'axios';
-import { BASE_URL } from '../contants'
-
-function LoginForm() {
+// import React, { useState } from "react";
+// import ReactDOM from "react-dom";
+// import { Link } from "react-router-dom";
+// import HeaderWithoutCartIcon from "./HeaderWithoutCartIcon";
+// import "./LoginForm.css";
+// import * as axios from 'axios';
 
 
+// function LoginForm() {
 
-  // React States
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
 
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
+//   // React States
+//   const [errorMessages, setErrorMessages] = useState({});
+//   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (event) => {
-    //Prevent page reload
-    event.preventDefault();
+//   // User Login info
+//   const database = [
+//     {
+//       username: "user1",
+//       password: "pass1"
+//     },
+//     {
+//       username: "user2",
+//       password: "pass2"
+//     }
+//   ];
 
-    var { uname, pass } = document.forms[0];
+//   const errors = {
+//     uname: "invalid username",
+//     pass: "invalid password"
+//   };
 
-    // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
+//   const handleSubmit = (event) => {
+//     //Prevent page reload
+//     event.preventDefault();
 
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        //setIsSubmitted(true);
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
+//     const form = document.forms[0];
+//     console.log(form);
 
-    axios.default.post(`${BASE_URL}/login`, { username: "uname", password: "pass"}).then((value) => {
-        console.log(value);
-    });
-  };
+//     var { uname, pass } = document.forms[0];
 
-  // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
+//     // Find user login info
+//     const userData = database.find((user) => user.username === uname.value);
 
-  // JSX code for login form
-  const renderForm = (
+//     // Compare user info
+//     if (userData) {
+//       if (userData.password !== pass.value) {
+//         // Invalid password
+//         setErrorMessages({ name: "pass", message: errors.pass });
+//       } else {
+//         //setIsSubmitted(true);
+//       }
+//     } else {
+//       // Username not found
+//       setErrorMessages({ name: "uname", message: errors.uname });
+//     }
+
+//     axios.default.post(`${BASE_URL}/login`, { username: uname, password: pass}).then((value) => {
+//         console.log(value);
+//     });
+//   };
+
+//   // Generate JSX code for error message
+//   const renderErrorMessage = (name) =>
+//     name === errorMessages.name && (
+//       <div className="error">{errorMessages.message}</div>
+//     );
+
+//   // JSX code for login form
+//   const renderForm = (
     
     
-    <div className="form">
+//     <div className="form">
 
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>Username </label>
-          <input type="text" name="uname" required />
-          {renderErrorMessage("uname")}
-        </div>
-        <div className="input-container">
-          <label>Password </label>
-          <input type="password" name="pass" required />
-          {renderErrorMessage("pass")}
-        </div>
-        <div className="button-container">
-        <input type="submit" />
-        </div>
-      </form>
-    </div>
-  );
+//       <form onSubmit={handleSubmit}>
+//         <div className="input-container">
+//           <label>Username </label>
+//           <input type="text" name="uname"  required />
+//           {renderErrorMessage("uname")}
+//         </div>
+//         <div className="input-container">
+//           <label>Password </label>
+//           <input type="password" name="pass" required />
+//           {renderErrorMessage("pass")}
+//         </div>
+//         <div className="button-container">
+//         <input type="submit" />
+//         </div>
+//       </form>
+//     </div>
+//   );
 
-  return (
-    <div>
-    <HeaderWithoutCartIcon></HeaderWithoutCartIcon>
-    <div className="login">
-      <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-      </div>
-    </div>
+//   return (
+//     <div>
+//     <HeaderWithoutCartIcon></HeaderWithoutCartIcon>
+//     <div className="login">
+//       <div className="login-form">
+//         <div className="title">Sign In</div>
+//         {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+//       </div>
+//     </div>
 
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
-export default LoginForm;
+// export default LoginForm;

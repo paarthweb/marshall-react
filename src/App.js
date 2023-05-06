@@ -7,6 +7,8 @@ import ThankYou from './components/ThankYou';
 import ValidatedLoginForm from './components/LoginForm';
 import LoginForm from './components/LoginForm';
 import HeaderWithoutCartIcon from './components/HeaderWithoutCartIcon';
+import LoginPage from './components/LoginPage';
+import HomeLogin from './Login/HomeLogin';
 
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
   
         <Route path='/cart' exact element={<Cart></Cart>}></Route>
         <Route path='/thankyou' exact element={<ThankYou></ThankYou>}></Route>
-        <Route path='/' exact element={<LoginForm></LoginForm>}></Route>
+        <Route path='/' exact element={<HomeLogin></HomeLogin>}></Route>
       </Routes>
  </div>
   </BrowserRouter>

@@ -20,9 +20,14 @@ const HeaderWithoutCartIcon = () => {
           </Link>
         </Navbar.Brand>
 
-
+      
       </Container>
 
+
+
+
+
+      
     </Navbar>
 
 

@@ -18,7 +18,7 @@ const Cart = () => {
       cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
     );
   }, [cart]);
-
+ 
   return (
     <div> <Header></Header>
     <div className="home">
@@ -39,7 +39,7 @@ const Cart = () => {
                  
                 </Col>
                 <Col md={2}>
-                  <Form.Control
+                <Form.Control
                     as="select"
                     value={prod.qty}
                     onChange={(e) =>
