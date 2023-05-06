@@ -3,9 +3,12 @@ import { Button, Form } from "react-bootstrap";
 import Rating from './Rating';
 import { useState } from 'react';
 
+const Filters = (props) => {
+  const { initialOutOfStock, onValueChange } = props;
 
-const Filters = () => {
-
+  const [state, setState] = useState({
+    shouldIncludeOutOfStock: initialOutOfStock
+  });
   
   const [rate, setRate] = useState(2)
 
@@ -13,50 +16,53 @@ const Filters = () => {
     <div className="filters">
       <span className="title">Filter Products</span>
       <span>
-        <Form.Check
-          inline
-          label="Electronics"
-          name="group1"
-          type="radio"
-          id={`inline-1`}
-          
-        
-          
-
-        />
+      <input
+            onChange={() => {
+              const newState = { ...state, sort: "high_to_low" };
+              setState(newState);
+              onValueChange(newState);
+            }}
+            type="radio"
+            value="high_to_low"
+            name="sort"
+          />
+          <span>High To Low</span>
       </span>
       <span>
-        <Form.Check
-          label="Clothing"
-          inline
-          name="group1"
-          type="radio"
-          id={`inline-2`}
-
-         
-
-        />
+      <input
+            onChange={() => {
+              const newState = { ...state, sort: "low_to_high" };
+              setState(newState);
+              onValueChange(newState);
+            }}
+            type="radio"
+            value="low_to_high"
+            name="sort"
+          />
+          <span>Low To High</span>
       </span>
+     
       <span>
-        <Form.Check
-          inline
-          label="Home Decor"
-          name="group1"
-          type="radio"
-          id={`inline-3`}
-
-        />
-      </span>
-      <span>
-        <Form.Check
-          inline
-          label="All"
-          name="group1"
+      <input
           type="checkbox"
-          id={`inline-4`}
-
-
+          onChange={(value) => {
+            console.log(value);
+            let toggleValue;
+            if (state.shouldIncludeOutOfStock === "true") {
+              toggleValue = "false";
+            } else {
+              toggleValue = "true";
+            }
+            const newState = {
+              ...state,
+              shouldIncludeOutOfStock: `${toggleValue}`
+            };
+            setState(newState);
+            onValueChange(newState);
+          }}
+          checked={state.shouldIncludeOutOfStock === "true"}
         />
+        <span>Should Include out of stock </span>
       </span>
 
       <Button

@@ -1,7 +1,7 @@
 .home {
   display: flex;
   /* background-color: rgb(158, 184, 215); */
-  background-image: url(bg.jpg);
+  background-image: url(backgroundpic.jpg);
 }
 
 
@@ -53,7 +53,7 @@
 .keep-shopping{
   margin: auto;
   width: 50%;
-  margin-left: 34em;
+  margin-left: 43em;
   padding: 10px;
   margin-top: 5em;
   align-content: center;
@@ -65,8 +65,9 @@
   margin-left: 45em;
 }
 .thank-you{
-  background-image: url(bg.jpg);
-  height: 40em;
+  background-image: url(backgroundpic.jpg);
+  height: 50em;
+
   
 }
 
@@ -74,4 +75,15 @@
   border-radius: 20%;
   width: 3em;
   margin-right: 0.5em;
+}
+.thanks{
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  border-radius: 10px;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  margin-top: 8em;
 }
