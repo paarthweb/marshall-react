@@ -5,6 +5,13 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import * as axios from 'axios';
 import { BASE_URL } from './contants'
+import Home from '../components/Home';
+import { useNavigate,useHistory } from "react-router-dom";
+import { Await } from 'react-router-dom';
+
+import { useState } from 'react';
+
+
 
 
 
@@ -23,6 +30,12 @@ const schema = Yup.object().shape({
 
 
 function HomeLogin() {
+  const navigate = useNavigate();
+  
+  const[error, setError] = useState("");
+ 
+  
+
   return (
     <>
     <div><HeaderWithoutCartIcon></HeaderWithoutCartIcon>
@@ -37,17 +50,26 @@ function HomeLogin() {
                 `${BASE_URL}/login`, 
                 {username: email, password }
                 )
-                .then((value) => {   ///promise
-                    console.log(value);
+                .then((response) => {   ///promise
+                    console.log(response);
+                    navigate("/home");
+                   
+                    
                 })
                 .catch((error) => {
                     console.error("error", error);
+                    setError('**PLEASE ENTER VALID DETAILS**');
                 })
+
+              
             
             console.log(input)
           
         }}
+        
       >
+        
+  
         {({
           values,
           errors,
