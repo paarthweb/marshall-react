@@ -7,16 +7,28 @@ import { Link } from 'react-router-dom'
 import { CartState } from '../context/Context'
 import pic from './images.png'
 import './style.css'
+import { Sidenav  } from 'rsuite';  
+import Layout from './Sidebar'
+import SideMenu from './SideMenu'
+import './Sidebar.css'
+import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import Sideapp from './Sidebar'
 
 const Header = () => {
   
   const { state: { cart },
   } = CartState();
   return (
+    
     <Navbar bg='dark' variant="dark" style={{ height: 80 }} sticky='top'>
+     
       <Container>
+       
+     
 
+      
 
+     
         <Navbar.Brand className='brand' variant='success'>
         <Link to="/home"> <img src={pic} alt='avatar' className='image'></img>
           
@@ -59,7 +71,7 @@ const Header = () => {
 
     </Navbar>
 
-
+    
   )
 }
 

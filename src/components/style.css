@@ -1,7 +1,8 @@
 .home {
   display: flex;
   /* background-color: rgb(158, 184, 215); */
-  background-image: url(backgroundpic.jpg);
+  /* background-image: url(backgroundpic.jpg); */
+  background-color: rgb(154, 227, 227);
 }
 
 
@@ -31,9 +32,26 @@
 .products {
   width: 30%;
   margin: 10px;
-  border-radius: 40%;
+  
+  height: auto;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+ background-color: #343a40;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-around;
+
+
 }
 
+.card{
+  border-radius: 15px 50px;
+}
+
+.qty{
+  margin-top: 1em;
+}
 .cart {
   background-color: rgb(173, 203, 240);
   height: 50em;
@@ -86,4 +104,8 @@
   padding: 45px;
   text-align: center;
   margin-top: 8em;
+}
+.filter-summary{
+  position: relative;
+  float: right;
 }

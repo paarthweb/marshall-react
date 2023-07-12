@@ -14,10 +14,11 @@ const SingleProduct = ({ prod }) => {
 
   
   return (
-    <div className='products'>
-      <Card variant='dark'>
-        <Card.Img variant='top' src={prod.image} alt={prod.name} />
-        <Card.Body>
+    <div className='products' variant="dark">
+
+      <Card variant='dark' className='card'>
+       
+        <Card.Body variant="dark">
           <Card.Title>{prod.name}</Card.Title> 
           <Card.Subtitle style={{ paddingBottom: 10 }}> 
             <span>₹ {prod.price.split(".")[0]}</span>
@@ -49,7 +50,7 @@ const SingleProduct = ({ prod }) => {
             }} disabled={!prod.inStock}> {!prod.inStock ? "Out of Stock" : "Add to Cart"}</Button> 
           )}
           
-                  <Form.Control
+                  <Form.Control className='qty'
                     as="select"
                     value={prod.qty}
                     onChange={(e) =>

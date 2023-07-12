@@ -26,7 +26,7 @@ const Filters = (props) => {
             value="high_to_low"
             name="sort"
           />
-          <span>High To Low</span>
+          <span> High To Low</span>
       </span>
       <span>
       <input
@@ -39,7 +39,7 @@ const Filters = (props) => {
             value="low_to_high"
             name="sort"
           />
-          <span>Low To High</span>
+          <span> Low To High</span>
       </span>
      
       <span>
@@ -62,13 +62,10 @@ const Filters = (props) => {
           }}
           checked={state.shouldIncludeOutOfStock === "true"}
         />
-        <span>Should Include out of stock </span>
+        <span> Should Include out of stock </span>
       </span>
 
-      <Button
-        variant="light">
-        Clear Filters
-      </Button>
+      
     </div>
   );
 };
